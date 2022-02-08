@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Parcours{% endblock %}
+
+{% block body %}
+    {{ include('header.html.twig') }}
+    {% if app.user %}
+<div class="container">
+    <h1>Créer un nouveau parcours</h1>
+
+    {{ include('parcours/_form.html.twig') }}
+
+    <a href="{{ path('parcours_index') }}" class="btn btn-info">Retour</a>
+</div>
+    {% endif %}
+{% endblock %}

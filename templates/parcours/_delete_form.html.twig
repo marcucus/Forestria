@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('parcours_delete', {'id': parcour.id}) }}" onsubmit="return confirm('Vous êtes sur de vouloir supprimer ce parcours ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ parcour.id) }}">
+    <button class="btn btn-danger">Supprimer</button>
+</form>
