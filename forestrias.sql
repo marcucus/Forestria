@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 08 fév. 2022 à 15:14
+-- Généré le : mer. 09 fév. 2022 à 19:41
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -59,16 +59,7 @@ CREATE TABLE IF NOT EXISTS `parcours` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `parcours`
---
-
-INSERT INTO `parcours` (`id`, `name`, `description`) VALUES
-(1, 'tset', 'tset'),
-(2, 'dqzdq', 'qzdqdz'),
-(3, 'test', 'sheeeeeesh');
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -87,15 +78,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `number` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id`, `email`, `roles`, `password`, `firstname`, `lastname`, `number`) VALUES
-(2, 'marqueslaw19@gmail.com', '[\"ROLE_ADMIN\"]', '$2y$13$OlWOHJls2MCBOMGbMlsbt.0xERf.dY.mLP.NryQqS.6nlvmN6pMH.', 'Adrien', 'Marques', '0652415788'),
-(3, 'dim@dim.fr', '[]', '$2y$13$J4h9EMYrJogYFPJGNFjYYOJkJ5IBVtL3Zs1kAE.PGKfy5wkMip.s.', 'Dimitri', 'Denis', '0602010250');
+(4, 'forestria@admin.fr', '[\"ROLE_ADMIN\"]', '$2y$13$Mnp2Zzf4U09/pmIPFD0jhekbDxQ..1y/dxHYabrZOt0lXUSKbMRc6', 'admin', 'admin', '0600000000');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
