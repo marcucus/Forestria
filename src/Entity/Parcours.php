@@ -27,6 +27,12 @@ class Parcours
     #[ORM\Column(type: 'text')]
     private $description;
 
+    #[ORM\Column(type: 'float')]
+    private $latitude;
+
+    #[ORM\Column(type: 'float')]
+    private $longitude;
+
     #[ORM\Column(type: "string",length: 255, nullable: true)]
     private $imageName;
 
@@ -75,6 +81,30 @@ class Parcours
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getLatitude(): ?float
+    {
+        return $this->latitude;
+    }
+
+    public function setLatitude(float $latitude): self
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    public function getLongitude(): ?float
+    {
+        return $this->longitude;
+    }
+
+    public function setLongitude(float $longitude): self
+    {
+        $this->longitude = $longitude;
 
         return $this;
     }

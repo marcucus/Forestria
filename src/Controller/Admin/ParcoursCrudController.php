@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Parcours;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -23,6 +24,8 @@ class ParcoursCrudController extends AbstractCrudController
         return [
             TextField::new('name')->setColumns(8),
             TextField::new('description')->setColumns(8),
+            NumberField::new('latitude')->setColumns(8),
+            NumberField::new('longitude')->setColumns(8),
             TextareaField::new('imageFile')->hideOnIndex()->setFormType(VichImageType::class)->setColumns(8),
         ];
     }
