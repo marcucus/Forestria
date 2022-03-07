@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 02 mars 2022 à 19:56
+-- Généré le : lun. 07 mars 2022 à 15:29
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -55,7 +55,11 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20220302161103', '2022-03-02 16:11:05', 20),
 ('DoctrineMigrations\\Version20220302161230', '2022-03-02 16:12:33', 109),
 ('DoctrineMigrations\\Version20220302174036', '2022-03-02 17:40:41', 20),
-('DoctrineMigrations\\Version20220302184013', '2022-03-02 18:40:18', 103);
+('DoctrineMigrations\\Version20220302184013', '2022-03-02 18:40:18', 103),
+('DoctrineMigrations\\Version20220307133608', '2022-03-07 13:36:26', 105),
+('DoctrineMigrations\\Version20220307141304', '2022-03-07 14:13:09', 218),
+('DoctrineMigrations\\Version20220307141802', '2022-03-07 14:18:05', 221),
+('DoctrineMigrations\\Version20220307142242', '2022-03-07 14:22:44', 63);
 
 -- --------------------------------------------------------
 
@@ -90,6 +94,52 @@ INSERT INTO `parcours` (`id`, `name`, `description`, `image_name`, `image_size`,
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `point`
+--
+
+DROP TABLE IF EXISTS `point`;
+CREATE TABLE IF NOT EXISTS `point` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pos` int(11) NOT NULL,
+  `latitude` double NOT NULL,
+  `longitude` double NOT NULL,
+  `text` longtext COLLATE utf8mb4_unicode_ci,
+  `titre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `point`
+--
+
+INSERT INTO `point` (`id`, `pos`, `latitude`, `longitude`, `text`, `titre`) VALUES
+(2, 1, 45.83866, 1.234474, 'test', 'Test');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `point_parcours`
+--
+
+DROP TABLE IF EXISTS `point_parcours`;
+CREATE TABLE IF NOT EXISTS `point_parcours` (
+  `point_id` int(11) NOT NULL,
+  `parcours_id` int(11) NOT NULL,
+  PRIMARY KEY (`point_id`,`parcours_id`),
+  KEY `IDX_BD48481C028CEA2` (`point_id`),
+  KEY `IDX_BD484816E38C0DB` (`parcours_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `point_parcours`
+--
+
+INSERT INTO `point_parcours` (`point_id`, `parcours_id`) VALUES
+(2, 5);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `user`
 --
 
@@ -112,6 +162,17 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `email`, `roles`, `password`, `firstname`, `lastname`, `number`) VALUES
 (4, 'forestria@admin.fr', '[\"ROLE_ADMIN\"]', '$2y$13$Mnp2Zzf4U09/pmIPFD0jhekbDxQ..1y/dxHYabrZOt0lXUSKbMRc6', 'admin', 'admin', '0000000000');
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `point_parcours`
+--
+ALTER TABLE `point_parcours`
+  ADD CONSTRAINT `FK_BD484816E38C0DB` FOREIGN KEY (`parcours_id`) REFERENCES `parcours` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_BD48481C028CEA2` FOREIGN KEY (`point_id`) REFERENCES `point` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

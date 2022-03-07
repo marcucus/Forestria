@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Points index{% endblock %}
+
+{% block body %}
+    {{ include('header.html.twig') }}
+    {% if app.user %}
+        <div class="container">
+        <h1>Parcours index</h1>
+        <div class="row">
+            <table class="table table-striped mt-5">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Pos</th>
+                    <th>Text</th>
+                    <th>Longitude</th>
+                    <th>Latitude</th>
+                </tr>
+                </thead>
+                <tbody>
+            {% for point in points %}
+
+                <tr>
+                    <td>{{ point.id }}</td>
+                    <td>{{ point.pos }}</td>
+                    <td>{{ point.longitude }}</td>
+                    <td>{{ point.latitude }}</td>
+                    <td>{{ point.text }}</td>
+                </tr>
+
+            {% else %}
+                <tr>
+                    <td colspan="4">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+            <div class="navigation">
+                {{ knp_pagination_render(points) }}
+            </div>
+        </div>
+
+    {% else %}
+        <div>Accès refusé, vous n'êtes pas connecté</div>
+    {% endif %}
+
+    </div>
+{% endblock %}

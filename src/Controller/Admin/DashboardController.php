@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Parcours;
+use App\Entity\Point;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -44,6 +45,8 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Parcours', 'fas fa-list', Parcours::class);
+        yield MenuItem::linkToCrud('Points d\'intérets', 'fas fa-map', Point::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
+
     }
 }
