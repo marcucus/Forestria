@@ -58,6 +58,11 @@ class Parcours
         $this->points = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -166,10 +171,5 @@ class Parcours
         $this->updatedAt = $updatedAt;
 
         return $this;
-    }
-
-    public function __toString(): string
-    {
-        return $this->getName();
     }
 }

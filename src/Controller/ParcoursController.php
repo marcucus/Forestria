@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Parcours;
+use App\Entity\Point;
 use App\Form\ParcoursType;
 use App\Repository\ParcoursRepository;
+use App\Repository\PointRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -51,10 +53,19 @@ class ParcoursController extends AbstractController
     }
 
     #[Route('/{id}', name: 'parcours_show', methods: ['GET'])]
-    public function show(Parcours $parcour): Response
+    public function show(Parcours $parcour, PaginatorInterface $paginator, Request $request, PointRepository $pointRepository): Response
     {
+        $id = $parcour->getId();
+        $pquery = $pointRepository->createQueryBuilder('pps')
+            ->from(Point::class , 'p')
+            ->innerJoin(Parcours::class, 'pa', 'p.parcours = pa.id')
+            ->where('pa.id = :id')
+            ->setParameter('id',$id)
+            ->orderBy('p.pos', 'ASC')
+            ->getQuery()->getResult();
         return $this->render('parcours/show.html.twig', [
             'parcour' => $parcour,
+            'points' => $pquery,
         ]);
     }
 

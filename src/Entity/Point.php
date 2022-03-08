@@ -30,13 +30,8 @@ class Point
     #[ORM\Column(type: 'text', nullable: true)]
     private $text;
 
-    #[ORM\ManyToMany(targetEntity: Parcours::class)]
+    #[ORM\ManyToOne(targetEntity: Parcours::class, inversedBy: "id")]
     private $parcours;
-
-    public function __construct()
-    {
-        $this->parcours = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -106,9 +101,17 @@ class Point
     /**
      * @return Collection|Parcours[]
      */
-    public function getParcours(): Collection
+    public function getParcours(): ?Parcours
     {
         return $this->parcours;
+    }
+
+    function setParcours($parcours)
+    {
+
+        $this->parcours = $parcours;
+
+        return $this;
     }
 
     public function addParcours(Parcours $parcours): self
