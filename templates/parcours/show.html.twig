@@ -3,7 +3,6 @@
 {% block title %}Parcours{% endblock %}
 
 {% block body %}
-    {{ include('header.html.twig') }}
     {% if app.user %}
 <div class="container">
     {% for parcour in parcours %}

@@ -3,7 +3,6 @@
 {% block title %}Edit User{% endblock %}
 
 {% block body %}
-    {{ include('header.html.twig') }}
     {% if (app.user.id==user.id) %}
     {{ include('user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
