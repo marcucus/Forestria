@@ -6,10 +6,10 @@
     {{ include('header.html.twig') }}
     {% if app.user %}
 <div class="container">
-    <h1>Parcours</h1>
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
-
+    {% for parcour in parcours %}
+        <h1>Parcours {{ parcour.name }} </h1>
+    {% endfor %}
+    <h3>Carte emplacement des sentiers</h3>
     <style>
         #map{
             height:500px;
@@ -17,12 +17,6 @@
             margin:5rem auto;
         }
     </style>
-
-    </head>
-
-    <body>
-    <h1>Carte emplacement des sentiers</h1>
-
     <div id="map"></div>
     <table class="table table-striped mt-5">
         <thead class="thead-dark">

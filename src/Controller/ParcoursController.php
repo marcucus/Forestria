@@ -53,18 +53,19 @@ class ParcoursController extends AbstractController
     }
 
     #[Route('/{id}', name: 'parcours_show', methods: ['GET'])]
-    public function show(Parcours $parcour, PaginatorInterface $paginator, Request $request, PointRepository $pointRepository): Response
+    public function show(Parcours $parcour, PointRepository $pointRepository, ParcoursRepository $parcoursRepository): Response
     {
         $id = $parcour->getId();
+        $parcn = $parcoursRepository->findBy(array('id'=>$id));
         $pquery = $pointRepository->createQueryBuilder('pps')
             ->from(Point::class , 'p')
             ->innerJoin(Parcours::class, 'pa', 'p.parcours = pa.id')
-            ->where('pa.id = :id')
+            ->where('p.parcours = :id')
             ->setParameter('id',$id)
             ->orderBy('p.pos', 'ASC')
             ->getQuery()->getResult();
         return $this->render('parcours/show.html.twig', [
-            'parcour' => $parcour,
+            'parcours' => $parcn,
             'points' => $pquery,
         ]);
     }
