@@ -12,19 +12,19 @@ class Point
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'integer', unique:true)]
     private $id;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $titre;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'integer', unique:true)]
     private $pos;
 
-    #[ORM\Column(type: 'float')]
+    #[ORM\Column(type: 'string')]
     private $latitude;
 
-    #[ORM\Column(type: 'float')]
+    #[ORM\Column(type: 'string')]
     private $longitude;
 
     #[ORM\Column(type: 'text', nullable: true)]
@@ -62,24 +62,24 @@ class Point
         return $this;
     }
 
-    public function getLatitude(): ?float
+    public function getLatitude(): ?string
     {
         return $this->latitude;
     }
 
-    public function setLatitude(float $latitude): self
+    public function setLatitude(string $latitude): self
     {
         $this->latitude = $latitude;
 
         return $this;
     }
 
-    public function getLongitude(): ?float
+    public function getLongitude(): ?string
     {
         return $this->longitude;
     }
 
-    public function setLongitude(float $longitude): self
+    public function setLongitude(string $longitude): self
     {
         $this->longitude = $longitude;
 

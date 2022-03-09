@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Parcours index{% endblock %}
+{% block title %}Parcours{% endblock %}
 
 {% block body %}
     {% if app.user %}
 <div class="container">
-        <h1>Parcours index</h1>
-    <div class="row">
+        <h1>Choisis un parcours !</h1>
+    <div class="row d-flex justify-content-center">
+        <div class="col">
             {% for parcour in parcours %}
-                        <div class="col-4">
+
                             <a href="{{ path('parcours_show', {'id': parcour.id}) }}" class="btn">
                             <div class="card" style="width: 18rem;">
                                 <img src="{{asset('images/upload/'~parcour.imageName)}}" class="card-img-top" alt="Image du parcour">
@@ -17,24 +18,24 @@
                                     <p class="card-text">{{ parcour.description }}</p>
                                 </div>
                             </div></a>
-                        </div>
+
 
             {% else %}
                 <tr>
                     <td colspan="4">no records found</td>
                 </tr>
             {% endfor %}
+        </div>
             </tbody>
         </table>
         <div class="navigation">
             {{ knp_pagination_render(parcours) }}
         </div>
     </div>
-    <a href="{{ path('parcours_new') }}" class="btn btn-success">Nouvelle catégorie</a>
 
     {% else %}
         <div>Accès refusé, vous n'êtes pas connecté</div>
     {% endif %}
-
     </div>
+</div>
 {% endblock %}

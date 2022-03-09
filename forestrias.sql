@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 09 mars 2022 à 17:22
+-- Généré le : jeu. 10 mars 2022 à 00:35
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -66,7 +66,10 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20220308010101', '2022-03-08 01:01:47', 320),
 ('DoctrineMigrations\\Version20220308141315', '2022-03-08 14:13:17', 190),
 ('DoctrineMigrations\\Version20220308141512', '2022-03-08 14:15:14', 137),
-('DoctrineMigrations\\Version20220308141530', '2022-03-08 14:15:38', 142);
+('DoctrineMigrations\\Version20220308141530', '2022-03-08 14:15:38', 142),
+('DoctrineMigrations\\Version20220309231929', '2022-03-09 23:19:32', 27),
+('DoctrineMigrations\\Version20220309232402', '2022-03-09 23:24:05', 56),
+('DoctrineMigrations\\Version20220309232509', '2022-03-09 23:25:11', 23);
 
 -- --------------------------------------------------------
 
@@ -94,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `parcours` (
 INSERT INTO `parcours` (`id`, `name`, `description`, `image_name`, `image_size`, `updated_at`, `latitude`, `longitude`) VALUES
 (3, 'Déchets', 'Voici le parcours des déchets ! Clique pour faire le parcours.', '621fa2ef0ab3e425994632.png', 35298, '2022-03-02 18:01:35', 0, 0),
 (4, 'Handicap', 'Voici le parcours handicap ! Clique pour faire le parcours.', '621fa2f6e3aa4950039457.png', 50168, '2022-03-02 18:01:42', 45.83291558861, 1.2522536878985),
-(5, 'Oiseaux', 'Voici le parcours nature spécial oiseaux ! Clique pour faire le parcours.', '621fa307d0b03556002863.png', 31735, '2022-03-02 18:01:59', 45.836413775621, 1.2374481037588),
+(5, 'Oiseaux', 'Voici le parcours oiseaux ! Clique pour faire le parcours.', '621fa307d0b03556002863.png', 31735, '2022-03-02 18:01:59', 45.836, 1.237),
 (6, 'Sport', 'Voici le parcours du sport ! Clique pour faire le parcours.', '621fa30ed6c35451665206.png', 31820, '2022-03-02 18:02:06', 0, 0),
 (9, 'Famille', 'Voici le parcours de la famille ! Clique pour faire le parcours.', '621fa3159e57e802230435.png', 38953, '2022-03-02 18:02:13', 45.835892730932, 1.2375563051559);
 
@@ -108,23 +111,33 @@ DROP TABLE IF EXISTS `point`;
 CREATE TABLE IF NOT EXISTS `point` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pos` int(11) NOT NULL,
-  `latitude` double NOT NULL,
-  `longitude` double NOT NULL,
+  `latitude` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `longitude` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `text` longtext COLLATE utf8mb4_unicode_ci,
   `titre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `parcours_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_B7A5F32480D9E6AC` (`pos`),
   KEY `IDX_B7A5F3246E38C0DB` (`parcours_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `point`
 --
 
 INSERT INTO `point` (`id`, `pos`, `latitude`, `longitude`, `text`, `titre`, `parcours_id`) VALUES
-(2, 1, 45.83866, 1.234474, 'test', 'Test', 5),
-(3, 2, 120, 150, 'yèiyè', 'test', 5),
-(4, 3, 50, 20, 'tests', 'test', 5);
+(2, 1, '45.838660', '1.234474', 'Mésange charbonnière (famille des Paridés)', 'Point d\'intérêt n°1', 5),
+(3, 2, '45.837954', '1.232736', 'Mésanges bleue et noire (famille des Paridés); Mésange (ou Orite) à longue-queue (famille des Aegithalidés)', 'Point d\'intérêt n°2', 5),
+(4, 3, '45.836186', '1.232371', 'Rougegorge familier (famille des Turdidés)', 'Point d\'intérêt n°3', 5),
+(5, 4, '45.835198', '1.234785', 'Pic épeiche (famille des Picidés)', 'Point d\'intérêt n°4', 5),
+(6, 5, '45.834661', '1.240384', 'Pinson des arbres et Chardonneret élégant (famille des Fringillidés)', 'Point d\'intérêt n°5', 5),
+(7, 6, '45.834376', '1.243417', 'Merle noir (famille des Turdidés)', 'Point d\'intérêt n°6', 5),
+(8, 7, '45.835531', '1.241751', 'Etourneau sansonnet (famille des Sturnidés)', 'Point d\'intérêt n°7', 5),
+(10, 8, '45.835793', '1.238964', 'Geai des chênes; Corneille noire; Choucas des tours (famille des Corvidés)', 'Point d\'intérêt n°8', 5),
+(11, 9, '45.836212', '1.236158', 'Pic vert (famille des Picidés)', 'Point d\'intérêt n°9', 5),
+(12, 10, '45.838080', '1.235173', 'Pie bavarde (famille des Corvidés)', 'Point d\'intérêt n°10', 5),
+(13, 11, '45.838116', '1.236647', 'Bergeronnette grise (famille des Motacillidés)', 'Point d\'intérêt n°11', 5),
+(14, 12, '45.838136', '1.238206', 'Pigeons biset et ramier; Tourterelle turque (famille des Columbidés)', 'Point d\'intérêt n°12', 5);
 
 -- --------------------------------------------------------
 
