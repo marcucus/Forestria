@@ -26,7 +26,7 @@ marker.bindPopup(contenu);
 
 
 
-// create a red polyline from an array of LatLng points
+
 const latlngs = [
     [45.838660, 1.234474],
     [45.837954, 1.232736],
@@ -44,6 +44,6 @@ const latlngs = [
 
 var polyline = L.polyline(latlngs, {color: 'red'}).addTo(mymap);
 
-// zoom the map to the polyline
+
 mymap.fitBounds(polyline.getBounds());
 
