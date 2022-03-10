@@ -1,13 +1,8 @@
-{{ include('header.html.twig') }}
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% extends 'base.html.twig' %}
 
-    <title>Forestria</title>
-</head>
-<body>
+{% block title %}Forestria{% endblock %}
+
+{% block body %}
 <div class="container">
 
     <table>
@@ -25,5 +20,4 @@
     </table>
     <hr class="my-4">
 </div>
-</body>
-</html>
+{% endblock %}

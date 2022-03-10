@@ -3,12 +3,11 @@
 {% block title %}User index{% endblock %}
 
 {% block body %}
-    {{ include('header.html.twig') }}
     {% if app.user %}
 <div class="container">
     <h1>Profil</h1>
     <div class="row">
-        <div class="col-4">
+        <div class="col-5">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">{{ app.user.firstname |capitalize }}</h5>

@@ -3,7 +3,6 @@
 {% block title %}Parcours{% endblock %}
 
 {% block body %}
-    {{ include('header.html.twig') }}
     {% if app.user %}
 <div class="container">
     {% for parcour in parcours %}
@@ -30,7 +29,7 @@
         <tbody>
     {% for point in points %}
     <tr>
-        <td>{{ point.text }}</td>
+        <td>{{ point.titre }}</td>
         <td>{{ point.pos }}</td>
         <td>{{ point.latitude }}</td>
         <td>{{ point.longitude }}</td>
