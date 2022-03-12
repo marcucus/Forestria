@@ -19,6 +19,19 @@ class PointRepository extends ServiceEntityRepository
         parent::__construct($registry, Point::class);
     }
 
+
+    public function findPointsByIdParc(int $id): array
+    {
+        $entityManager= $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            'SELECT DISTINCT p
+            FROM App\Entity\Point p
+            INNER JOIN App\Entity\Parcours pa with p.parcours=pa.id
+            WHERE p.parcours = :id
+            ORDER BY p.pos ASC'
+        )->setParameter('id', $id)->getArrayResult();
+        return $query;
+    }
     // /**
     //  * @return Point[] Returns an array of Point objects
     //  */

@@ -13,10 +13,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\Query\Expr\Join;
 
 #[Route('/parcours')]
 class ParcoursController extends AbstractController
 {
+
     #[Route('/', name: 'parcours_index', methods: ['GET'])]
     public function index(ParcoursRepository $parcoursRepository, PaginatorInterface $paginator, Request $request): Response
     {
@@ -57,13 +59,7 @@ class ParcoursController extends AbstractController
     {
         $id = $parcour->getId();
         $parcn = $parcoursRepository->findBy(array('id'=>$id));
-        $pquery = $pointRepository->createQueryBuilder('pps')
-            ->from(Point::class , 'p')
-            ->innerJoin(Parcours::class, 'pa', 'p.parcours = pa.id')
-            ->where('p.parcours = :id')
-            ->setParameter('id',$id)
-            ->orderBy('p.pos', 'ASC')
-            ->getQuery()->getResult();
+        $pquery = $pointRepository->findPointsByIdParc($id);
         return $this->render('parcours/show.html.twig', [
             'parcours' => $parcn,
             'points' => $pquery,

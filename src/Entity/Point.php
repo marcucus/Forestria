@@ -18,13 +18,13 @@ class Point
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $titre;
 
-    #[ORM\Column(type: 'integer', unique:true)]
+    #[ORM\Column(type: 'integer')]
     private $pos;
 
-    #[ORM\Column(type: 'string')]
+    #[ORM\Column(type: 'float')]
     private $latitude;
 
-    #[ORM\Column(type: 'string')]
+    #[ORM\Column(type: 'float')]
     private $longitude;
 
     #[ORM\Column(type: 'text', nullable: true)]
@@ -104,6 +104,11 @@ class Point
     public function getParcours(): ?Parcours
     {
         return $this->parcours;
+    }
+
+    public function getIdParcours(): ?Parcours
+    {
+        return $this->id;
     }
 
     function setParcours($parcours)

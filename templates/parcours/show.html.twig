@@ -1,21 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Parcours{% endblock %}
-
 {% block body %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
     {% if app.user %}
 <div class="container">
     {% for parcour in parcours %}
+        <div id="latitude" data-is-latitude="{{ parcour.latitude|json_encode}}"></div>
+        <div id="longitude" data-is-longitude="{{ parcour.longitude|json_encode }}"></div>
         <h1>Parcours {{ parcour.name }} </h1>
     {% endfor %}
     <h3>Carte emplacement des sentiers</h3>
-    <style>
-        #map{
-            height:500px;
-            width:500px;
-            margin:5rem auto;
-        }
-    </style>
     <div id="map"></div>
     <table class="table table-striped mt-5">
         <thead class="thead-dark">
@@ -27,7 +23,10 @@
             </tr>
         </thead>
         <tbody>
+        <div id="points" data-is-points="{{ points|json_encode}}"></div>
     {% for point in points %}
+        <div id="platitude" data-is-platitude="{{ point.latitude|json_encode}}"></div>
+        <div id="plongitude" data-is-plongitude="{{ point.longitude|json_encode }}"></div>
     <tr>
         <td>{{ point.titre }}</td>
         <td>{{ point.pos }}</td>
@@ -35,15 +34,17 @@
         <td>{{ point.longitude }}</td>
     </tr>
     {% endfor %}
-
         </tbody>
     </table>
 </div>
 
-    {% endif %}{% block javascript %}{% endblock %}
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="{{ asset ('js/map.js') }}"></script>
+    {% endif %}
 
+    {% block javascript %}{% endblock %}
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script src="{{asset('js/map.js')}}"></script>
 {% endblock %}
 
 

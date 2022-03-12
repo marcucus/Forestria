@@ -33,8 +33,8 @@ class PointCrudController extends AbstractCrudController
         yield NumberField::new('pos')->setColumns(8);
         yield TextField::new('titre')->setColumns(8);
         yield TextareaField::new('text', 'Contenu')->setColumns(8);
-        yield TextField::new('latitude')->setColumns(8);
-        yield TextField::new('longitude')->setColumns(8);
+        yield Field::new('latitude')->setColumns(8);
+        yield Field::new('longitude')->setColumns(8);
         yield AssociationField::new('parcours')->setColumns(8);
 
     }
