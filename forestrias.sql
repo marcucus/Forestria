@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 12 mars 2022 à 01:49
+-- Généré le : mer. 16 mars 2022 à 23:23
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -72,7 +72,8 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20220309232509', '2022-03-09 23:25:11', 23),
 ('DoctrineMigrations\\Version20220311201806', '2022-03-11 20:18:13', 84),
 ('DoctrineMigrations\\Version20220311225706', '2022-03-11 22:57:10', 66),
-('DoctrineMigrations\\Version20220311231800', '2022-03-11 23:18:07', 71);
+('DoctrineMigrations\\Version20220311231800', '2022-03-11 23:18:07', 71),
+('DoctrineMigrations\\Version20220316204441', '2022-03-16 20:44:57', 122);
 
 -- --------------------------------------------------------
 
@@ -119,27 +120,33 @@ CREATE TABLE IF NOT EXISTS `point` (
   `text` longtext COLLATE utf8mb4_unicode_ci,
   `titre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `parcours_id` int(11) DEFAULT NULL,
+  `image_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_size` int(11) DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)',
+  `sound_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sound_size` int(11) DEFAULT NULL,
+  `url` longtext COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `IDX_B7A5F3246E38C0DB` (`parcours_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `point`
 --
 
-INSERT INTO `point` (`id`, `pos`, `latitude`, `longitude`, `text`, `titre`, `parcours_id`) VALUES
-(2, 1, 45.83866, 1.234474, 'Mésange charbonnière (famille des Paridés)', 'Point d\'intérêt n°1 (début)', 5),
-(3, 2, 45.837954, 1.232736, 'Mésanges bleue et noire (famille des Paridés); Mésange (ou Orite) à longue-queue (famille des Aegithalidés)', 'Point d\'intérêt n°2', 5),
-(4, 3, 45.836186, 1.232371, 'Rougegorge familier (famille des Turdidés)', 'Point d\'intérêt n°3', 5),
-(5, 4, 45.835198, 1.234785, 'Pic épeiche (famille des Picidés)', 'Point d\'intérêt n°4', 5),
-(6, 5, 45.834661, 1.240384, 'Pinson des arbres et Chardonneret élégant (famille des Fringillidés)', 'Point d\'intérêt n°5', 5),
-(7, 6, 45.834376, 1.243417, 'Merle noir (famille des Turdidés)', 'Point d\'intérêt n°6', 5),
-(8, 7, 45.835531, 1.241751, 'Etourneau sansonnet (famille des Sturnidés)', 'Point d\'intérêt n°7', 5),
-(10, 8, 45.835793, 1.238964, 'Geai des chênes; Corneille noire; Choucas des tours (famille des Corvidés)', 'Point d\'intérêt n°8', 5),
-(11, 9, 45.836212, 1.236158, 'Pic vert (famille des Picidés)', 'Point d\'intérêt n°9', 5),
-(12, 10, 45.83808, 1.235173, 'Pie bavarde (famille des Corvidés)', 'Point d\'intérêt n°10', 5),
-(13, 11, 45.838116, 1.236647, 'Bergeronnette grise (famille des Motacillidés)', 'Point d\'intérêt n°11', 5),
-(14, 12, 45.838136, 1.238206, 'Pigeons biset et ramier; Tourterelle turque (famille des Columbidés)', 'Point d\'intérêt n°12 (fin)', 5);
+INSERT INTO `point` (`id`, `pos`, `latitude`, `longitude`, `text`, `titre`, `parcours_id`, `image_name`, `image_size`, `updated_at`, `sound_name`, `sound_size`, `url`) VALUES
+(2, 1, 45.83866, 1.234474, '<div>Mésange charbonnière (famille des Paridés)</div>', 'Point d\'intérêt n°1 (début)', 5, '6232537c26a69157972160.jpg', 521127, '2022-03-16 22:15:40', '6232537c29cc5777299712.mp3', 1861578, NULL),
+(3, 2, 45.838, 1.233, '<div>Mésanges bleue et noire (famille des Paridés); Mésange (ou Orite) à longue-queue (famille des Aegithalidés)</div>', 'Point d\'intérêt n°2', 5, '6232539a511a8313126614.jpg', 896252, '2022-03-16 22:16:10', '6232539a53375664068262.mp3', 924660, NULL),
+(4, 3, 45.836186, 1.232371, '<div>Rougegorge familier (famille des Turdidés)</div>', 'Point d\'intérêt n°3', 5, '623254b96eaa0343527939.jpg', 40679, '2022-03-16 22:20:57', '623254b970d67638802598.mp3', 7193078, NULL),
+(5, 4, 45.835198, 1.234785, '<div>Pic épeiche (famille des Picidés)</div>', 'Point d\'intérêt n°4', 5, '623254d679265642646871.jpg', 1005247, '2022-03-16 22:21:26', '623254d67b3bc126352974.mp3', 508299, NULL),
+(6, 5, 45.834661, 1.240384, '<div>Pinson des arbres et Chardonneret élégant (famille des Fringillidés)</div>', 'Point d\'intérêt n°5', 5, '623255018a8f7734586530.jpg', 10158060, '2022-03-16 22:22:09', '623255018d03a307025952.mp3', 338186, NULL),
+(7, 6, 45.834376, 1.243417, '<div>Merle noir (famille des Turdidés)</div>', 'Point d\'intérêt n°6', 5, '623255384fc4d819541678.jpg', 1196774, '2022-03-16 22:23:04', '6232553852033312138185.mp3', 304846, NULL),
+(8, 7, 45.835531, 1.241751, '<div>Etourneau sansonnet (famille des Sturnidés)</div>', 'Point d\'intérêt n°7', 5, '62325551ca458461864357.jpg', 322504, '2022-03-16 22:23:29', '62325551ccf0e356200463.mp3', 1546918, NULL),
+(10, 8, 45.835793, 1.238964, '<div>Geai des chênes; Corneille noire; Choucas des tours (famille des Corvidés)</div>', 'Point d\'intérêt n°8', 5, '6232556fd686b000557914.jpg', 652257, '2022-03-16 22:23:59', '6232556fd895a243071113.mp3', 713209, NULL),
+(11, 9, 45.836212, 1.236158, '<div>Pic vert (famille des Picidés)</div>', 'Point d\'intérêt n°9', 5, '62325587a8192138166366.jpg', 837552, '2022-03-16 22:24:23', '62325587aa611479429494.mp3', 220659, NULL),
+(12, 10, 45.83808, 1.235173, '<div>Pie bavarde (famille des Corvidés)</div>', 'Point d\'intérêt n°10', 5, '6232559ba0b7a845823883.jpg', 2152500, '2022-03-16 22:24:43', '6232559ba2e96708890809.mp3', 904894, NULL),
+(13, 11, 45.838116, 1.236647, '<div>Bergeronnette grise (famille des Motacillidés)</div>', 'Point d\'intérêt n°11', 5, '623255b668386915959805.jpg', 1976908, '2022-03-16 22:25:10', '623255b66a6b4035055864.mp3', 522218, NULL),
+(14, 12, 45.838136, 1.238206, '<div>Pigeons biset et ramier; Tourterelle turque (famille des Columbidés)</div>', 'Point d\'intérêt n°12 (fin)', 5, '623255cce5c8d544854617.jpg', 185897, '2022-03-16 22:25:32', '623255cce7b6c021110013.mp3', 1188768, NULL);
 
 -- --------------------------------------------------------
 
