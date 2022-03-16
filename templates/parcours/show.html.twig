@@ -13,31 +13,42 @@
     {% endfor %}
     <h3>Carte emplacement des sentiers</h3>
     <div id="map"></div>
-    <table class="table table-striped mt-5">
-        <thead class="thead-dark">
-            <tr>
-                <th>Nom</th>
-                <th>Position</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
-            </tr>
-        </thead>
-        <tbody>
-        <div id="points" data-is-points="{{ points|json_encode}}"></div>
+    <table>
+        <div id="points" data-is-points="{{ points|json_encode }}"></div>
     {% for point in points %}
-        <div id="platitude" data-is-platitude="{{ point.latitude|json_encode}}"></div>
-        <div id="plongitude" data-is-plongitude="{{ point.longitude|json_encode }}"></div>
-    <tr>
-        <td>{{ point.titre }}</td>
-        <td>{{ point.pos }}</td>
-        <td>{{ point.latitude }}</td>
-        <td>{{ point.longitude }}</td>
-    </tr>
+        <a class="pull-left" id="{{ point.id }}">
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{{asset('images/upload/point/'~point.imageName)}}" class="card-img" alt="image du point">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ point.titre }}</h5>
+                            <p class="card-text">{{ point.text|raw }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer"><audio controls src="{{asset('images/upload/point/sound/'~point.soundName)}}">
+                        Your browser does not support the<code>audio</code> element.</audio>
+                </div>
+            </div>
+            <!--
+        <div class="card mb-3">
+            <img src="{{asset('images/upload/point/'~point.imageName)}}" class="card-img-top" alt="image du point">
+            <div class="card-body">
+                <h5 class="card-title">{{ point.titre }}</h5>
+                <p class="card-text">{{ point.text|raw }}</p>
+                <p class="card-text">
+                    <audio controls src="{{asset('images/upload/point/sound/'~point.soundName)}}">
+                        Your browser does not support the<code>audio</code> element.
+                    </audio></p>
+            </div>
+        </div>--></a>
+
     {% endfor %}
-        </tbody>
     </table>
 </div>
-
     {% endif %}
 
     {% block javascript %}{% endblock %}

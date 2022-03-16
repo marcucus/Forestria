@@ -2,9 +2,6 @@ const apiKey='pk.eyJ1IjoiY2hhaW1hYWJyIiwiYSI6ImNsMDVmbTFwcjB2Zm8zYm1qZHgyaTJuY3U
 
 let points = $('#points').data("isPoints");
 
-let plati = $('#platitude').data("isPlatitude");
-let plongi = $('#plongitude').data("isPlongitude");
-
 let lati = $('#latitude').data("isLatitude");
 let longi = $('#longitude').data("isLongitude");
 
@@ -36,18 +33,20 @@ for(let i =0; i < nb; i++)
 
     latlngs.push([points[i]['latitude'],points[i]['longitude']],);
     marker = L.marker([points[i]['latitude'],points[i]['longitude']]).addTo(mymap);
+    pid = points[i]['id'];
     contenu = `
         <h5>`
     contenu += points[i]['titre'];
     contenu +=`</h5>
-        <div style="text-align:center">
+            <div style="text-align:center">
             <img width="95" height="95" src="../../public/images/sentier_handicap.png" alt="Image du point"/>
             <p>`
     contenu += points[i]['text'];
-    contenu+= `</p>
-            <button ion-button clear round (click)="InfosParcour()">En savoir plus</button>
-        </div>
-        `
+    contenu += `</p>`
+    contenu += "<a href='#";
+    contenu += points[i]['id'];
+    contenu += "'class='btn'>En savoir plus</a>";
+    contenu +=`</div>`;
     marker.bindPopup(contenu);
 }
 console.log(latlngs);
