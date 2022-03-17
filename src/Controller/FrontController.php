@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FrontController extends AbstractController
 {
-    #[Route('/', name: 'front', methods: ['GET'])]
+    #[Route('/', name: 'app_front', methods: ['GET'])]
     public function index(ParcoursRepository $parcoursRepository, PaginatorInterface $paginator, Request $request): Response
     {
         $parcQuery = $parcoursRepository->findAll();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 16 mars 2022 à 23:23
+-- Généré le : jeu. 17 mars 2022 à 18:52
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -73,7 +73,8 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20220311201806', '2022-03-11 20:18:13', 84),
 ('DoctrineMigrations\\Version20220311225706', '2022-03-11 22:57:10', 66),
 ('DoctrineMigrations\\Version20220311231800', '2022-03-11 23:18:07', 71),
-('DoctrineMigrations\\Version20220316204441', '2022-03-16 20:44:57', 122);
+('DoctrineMigrations\\Version20220316204441', '2022-03-16 20:44:57', 122),
+('DoctrineMigrations\\Version20220317170427', '2022-03-17 17:04:35', 91);
 
 -- --------------------------------------------------------
 
@@ -151,6 +152,24 @@ INSERT INTO `point` (`id`, `pos`, `latitude`, `longitude`, `text`, `titre`, `par
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `reset_password_request`
+--
+
+DROP TABLE IF EXISTS `reset_password_request`;
+CREATE TABLE IF NOT EXISTS `reset_password_request` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `selector` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hashed_token` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `requested_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+  `expires_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+  PRIMARY KEY (`id`),
+  KEY `IDX_7CE748AA76ED395` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `user`
 --
 
@@ -165,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `number` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
@@ -183,6 +202,12 @@ INSERT INTO `user` (`id`, `email`, `roles`, `password`, `firstname`, `lastname`,
 --
 ALTER TABLE `point`
   ADD CONSTRAINT `FK_B7A5F3246E38C0DB` FOREIGN KEY (`parcours_id`) REFERENCES `parcours` (`id`);
+
+--
+-- Contraintes pour la table `reset_password_request`
+--
+ALTER TABLE `reset_password_request`
+  ADD CONSTRAINT `FK_7CE748AA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

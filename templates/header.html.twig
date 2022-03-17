@@ -1,11 +1,11 @@
 {%block body%}
   <header class="header" id="header">
 
-    <a href="#" class="logo"> <i class="fas fa-hiking"></i> Logo Forestria. </a>
+    <a href="{{ path('app_front') }}" class="logo"> <i class="fas fa-hiking"></i> Logo Forestria. </a>
 
     <nav class="navbar" id="navbar">
         <div id="nav-close" class="fas fa-times"></div>
-         <a  href="/"><i class="fas fa-home"></i> Accueil</a>
+         <a  href="{{ path('app_front') }}"><i class="fas fa-home"></i> Accueil</a>
          <a  href="/parcours"><i class="fas fa-map-signs"></i> Parcours</a>
          {% if app.user %}
                     <a  href="/user"><i class="fas fa-user"></i> Profil </a>
@@ -14,8 +14,8 @@
                     {% endif %}
                     <a  href="{{ path('app_logout') }}"><i class="fas fa-bed"></i> Logout</a>
                 {% else %}
-                    <a  href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
-                    <a  href="/register"><i class="fas fa-user"></i> Register</a>
+                    <a  href="{{ path('app_login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a  href="{{ path('app_register') }}"><i class="fas fa-user"></i> Register</a>
                 {% endif %}
     </nav>
 
