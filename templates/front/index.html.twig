@@ -3,34 +3,47 @@
 {% block title %}Forestria{% endblock %}
 
 {% block body %}
+
+<section class="home" id="home">
+
+    <div class="swiper home-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="box" style="background: url(../images/img1.jpg) no-repeat;">
+                    <div class="content">
+                        <span>Bienvenue sur le site</span>
+                        <h3>Forestria</h3>
+                        <p>regroupant plusieurs randonnées dans la ville de Limoges !</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="box second" style="background: url(../images/img5.jpg) no-repeat;">
+                    <div class="content">
+                        <span>make tour</span>
+                        <h3>amazing</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+           
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
 <div class="wrapper">
     <div class="container">
-    <table>
-        <tr>
-            <td>
-                <img src="{{ asset('images/img.png') }}" height="40%" width="40%"><h1> Forestria </h1>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                Bienvenue sur le site Forestria regroupant plusieurs randonnées dans la ville de Limoges !
-            </td>
-        </tr>
-    </table>
-    <hr class="my-4">
-    </div>
-    <div class="bande bande--info" id="info3">
-        <div class="container">
-            <h2 class="bandeText bandeText--univers">
-                Toutes nos randonnées
-            </h2>
-        </div>
-    </div>
-    <div class="container">
-    <div class="row d-flex justify-content-center">
-
-
         <div class="col">
             {% for parcour in parcours %}
 
@@ -49,12 +62,10 @@
                 </tr>
             {% endfor %}
         </div>
-        </tbody>
-        </table>
+        
         <div class="navigation">
             {{ knp_pagination_render(parcours) }}
         </div>
     </div>
-    </div>
-</div>
+   
 {% endblock %}
