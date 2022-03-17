@@ -3,21 +3,58 @@
 {% block title %}Forestria{% endblock %}
 
 {% block body %}
-<div class="container">
-
+<div class="wrapper">
+    <div class="container">
     <table>
         <tr>
             <td>
-                <img src="{{ asset('images/cvtic.png') }}" height="42" width="42"><h1> Forestria </h1>
+                <img src="{{ asset('images/img.png') }}" height="40%" width="40%"><h1> Forestria </h1>
             </td>
         </tr>
 
         <tr>
             <td>
-                Voici le projet Forestria
+                Bienvenue sur le site Forestria regroupant plusieurs randonnées dans la ville de Limoges !
             </td>
         </tr>
     </table>
     <hr class="my-4">
+    </div>
+    <div class="bande bande--info" id="info3">
+        <div class="container">
+            <h2 class="bandeText bandeText--univers">
+                Toutes nos randonnées
+            </h2>
+        </div>
+    </div>
+    <div class="container">
+    <div class="row d-flex justify-content-center">
+
+
+        <div class="col">
+            {% for parcour in parcours %}
+
+                <a href="{{ path('parcours_show', {'id': parcour.id}) }}" class="btn">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{asset('images/upload/'~parcour.imageName)}}" class="card-img-top" alt="Image du parcour">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ parcour.name }}</h5>
+                            <p class="card-text">{{ parcour.description }}</p>
+                        </div>
+                    </div></a>
+
+            {% else %}
+                <tr>
+                    <td colspan="4">no records found</td>
+                </tr>
+            {% endfor %}
+        </div>
+        </tbody>
+        </table>
+        <div class="navigation">
+            {{ knp_pagination_render(parcours) }}
+        </div>
+    </div>
+    </div>
 </div>
 {% endblock %}

@@ -4,7 +4,8 @@
 
 {% block body %}
     <div class="container mt-5">
-        <h1>Inscription</h1>
+        <h1>Inscription</h1><hr><br>
+
         {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.firstname,{'attr': {'class': 'form-control'}}) }}
         {{ form_row(registrationForm.lastname,{'attr': {'class': 'form-control'}}) }}
