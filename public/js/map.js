@@ -37,12 +37,14 @@ for(let i =0; i < nb; i++)
     contenu = `
         <h5>`
     contenu += points[i]['titre'];
-    contenu +=`</h5>
-            <div style="text-align:center">
-            <img width="95" height="95" src="../../public/images/sentier_handicap.png" alt="Image du point"/>
-            <p>`
+    contenu +=`</h5>`;
+    contenu += '<div style="text-align:center">';
+    contenu += "<img width='70%' height='70%' src='../images/upload/point/";
+    contenu += points[i]['imageName'];
+    contenu +="' alt='Image du point'/>";
+    contenu +=`<p>`;
     contenu += points[i]['text'];
-    contenu += `</p>`
+    contenu += `</p>`;
     contenu += "<a href='#";
     contenu += points[i]['id'];
     contenu += "'class='btn'>En savoir plus</a>";
