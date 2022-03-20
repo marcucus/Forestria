@@ -11,7 +11,7 @@
         <div class="swiper-wrapper">
 
             <div class="swiper-slide">
-                <div class="box" style="background: url(../images/img1.jpg) no-repeat;">
+                <div class="box" style="background: url(../images/img6.jpg) no-repeat;">
                     <div class="content">
                         <span>Bienvenue sur</span>
                         <h3>Forestria  !</h3>
@@ -42,30 +42,41 @@
     </div>
 
 </section>
-    <div class="wrapper">
-    <div class="container">
-        <div class="col">
-            {% for parcour in parcours %}
+    <section class="category">
+
+    <h1 class="heading">Choisir un parcour</h1>
+
+    <div class="box-container">
+            
+        {% for parcour in parcours %}
+        
+    
+        <div class="box">
+            
 
                 <a href="{{ path('parcours_show', {'id': parcour.id}) }}" class="btn">
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{asset('images/upload/'~parcour.imageName)}}" class="card-img-top" alt="Image du parcour">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ parcour.name }}</h5>
-                            <p class="card-text">{{ parcour.description }}</p>
-                        </div>
-                    </div></a>
-
+                            
+                        <img src="{{asset('images/upload/'~parcour.imageName)}}"  alt="Image du parcour">
+                            
+                            <h3> {{ parcour.name }}</h3>
+                            <p> {{ parcour.description }}</p>
+                    
+                    </a>
+                
+        </div>
             {% else %}
                 <tr>
                     <td colspan="4">no records found</td>
                 </tr>
             {% endfor %}
-        </div>
-        
-        <div class="navigation">
+            
+            
+            <div class="navigation">
             {{ knp_pagination_render(parcours) }}
         </div>
+
     </div>
+    </section>
+             
    
 {% endblock %}
