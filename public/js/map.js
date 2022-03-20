@@ -33,7 +33,7 @@ const latlngs = [];
 
 for(let i =0; i < nb; i++)
 {
-
+    let texts = points[i]['text'].substr(0, 100);
     latlngs.push([points[i]['latitude'],points[i]['longitude']],);
     marker = L.marker([points[i]['latitude'],points[i]['longitude']]).addTo(mymap);
     pid = points[i]['id'];
@@ -46,7 +46,7 @@ for(let i =0; i < nb; i++)
     contenu += points[i]['imageName'];
     contenu +="' alt='Image du point'/>";
     contenu +=`<p>`;
-    contenu += points[i]['text'];
+    contenu += texts+' ...';
     contenu += `</p>`;
     contenu += "<a href='#";
     contenu += points[i]['id'];

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 16 mars 2022 à 23:23
+-- Généré le : sam. 19 mars 2022 à 02:08
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -73,7 +73,8 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20220311201806', '2022-03-11 20:18:13', 84),
 ('DoctrineMigrations\\Version20220311225706', '2022-03-11 22:57:10', 66),
 ('DoctrineMigrations\\Version20220311231800', '2022-03-11 23:18:07', 71),
-('DoctrineMigrations\\Version20220316204441', '2022-03-16 20:44:57', 122);
+('DoctrineMigrations\\Version20220316204441', '2022-03-16 20:44:57', 122),
+('DoctrineMigrations\\Version20220317170427', '2022-03-17 17:04:35', 91);
 
 -- --------------------------------------------------------
 
@@ -100,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `parcours` (
 
 INSERT INTO `parcours` (`id`, `name`, `description`, `image_name`, `image_size`, `updated_at`, `latitude`, `longitude`) VALUES
 (3, 'Déchets', 'Voici le parcours des déchets ! Clique pour faire le parcours.', '621fa2ef0ab3e425994632.png', 35298, '2022-03-02 18:01:35', 0, 0),
-(4, 'Handicap', 'Voici le parcours handicap ! Clique pour faire le parcours.', '621fa2f6e3aa4950039457.png', 50168, '2022-03-02 18:01:42', 45.83291558861, 1.2522536878985),
+(4, 'Handicap', 'Voici le parcours handicap ! Clique pour faire le parcours.', '621fa2f6e3aa4950039457.png', 50168, '2022-03-02 18:01:42', 45.8382119, 1.2367931),
 (5, 'Oiseaux', 'Voici le parcours oiseaux ! Clique pour faire le parcours.', '621fa307d0b03556002863.png', 31735, '2022-03-02 18:01:59', 45.83773072367752, 1.237046045891824),
 (6, 'Sport', 'Voici le parcours du sport ! Clique pour faire le parcours.', '621fa30ed6c35451665206.png', 31820, '2022-03-02 18:02:06', 0, 0),
 (9, 'Famille', 'Voici le parcours de la famille ! Clique pour faire le parcours.', '621fa3159e57e802230435.png', 38953, '2022-03-02 18:02:13', 45.835892730932, 1.2375563051559);
@@ -128,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `point` (
   `url` longtext COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `IDX_B7A5F3246E38C0DB` (`parcours_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `point`
@@ -146,7 +147,30 @@ INSERT INTO `point` (`id`, `pos`, `latitude`, `longitude`, `text`, `titre`, `par
 (11, 9, 45.836212, 1.236158, '<div>Pic vert (famille des Picidés)</div>', 'Point d\'intérêt n°9', 5, '62325587a8192138166366.jpg', 837552, '2022-03-16 22:24:23', '62325587aa611479429494.mp3', 220659, NULL),
 (12, 10, 45.83808, 1.235173, '<div>Pie bavarde (famille des Corvidés)</div>', 'Point d\'intérêt n°10', 5, '6232559ba0b7a845823883.jpg', 2152500, '2022-03-16 22:24:43', '6232559ba2e96708890809.mp3', 904894, NULL),
 (13, 11, 45.838116, 1.236647, '<div>Bergeronnette grise (famille des Motacillidés)</div>', 'Point d\'intérêt n°11', 5, '623255b668386915959805.jpg', 1976908, '2022-03-16 22:25:10', '623255b66a6b4035055864.mp3', 522218, NULL),
-(14, 12, 45.838136, 1.238206, '<div>Pigeons biset et ramier; Tourterelle turque (famille des Columbidés)</div>', 'Point d\'intérêt n°12 (fin)', 5, '623255cce5c8d544854617.jpg', 185897, '2022-03-16 22:25:32', '623255cce7b6c021110013.mp3', 1188768, NULL);
+(14, 12, 45.838136, 1.238206, '<div>Pigeons biset et ramier; Tourterelle turque (famille des Columbidés)</div>', 'Point d\'intérêt n°12 (fin)', 5, '623255cce5c8d544854617.jpg', 185897, '2022-03-16 22:25:32', '623255cce7b6c021110013.mp3', 1188768, NULL),
+(15, 1, 45.8382119, 1.2367931, '<div>Le Catalpa est l’un des rares arbres qui a conservé son nom d\'origine, donné par les Indiens Cherokees qui consommaient ces graines.&nbsp;<br><br></div><div>En langue cherokee, \"catalpa\" désigne une variété de haricot.</div>', 'Anecdotes', 4, '623528d57946d392845769.jpeg', 1065873, '2022-03-19 01:50:29', NULL, NULL, NULL),
+(16, 2, 45.836, 1.237, '<div>Il est originaire du sud-est des Etats-Unis. Le catalpa se trouve principalement dans les états du Mississippi et de la Géorgie. On le trouve également en Alabama, en Floride et en Louisiane.<br><br></div><div>Le catalpa a été introduit en Europe au début du 18 -ème siècle.<br><br></div><div>Le catalpa apprécie les sols humifères (frais et drainés) et accepte les sols calcaires. Il résiste relativement bien à la pollution atmosphérique et ne tolère pas les sols compacts et superficiels ainsi que l\'hydromorphie prolongée ou permanente.</div>', 'Informations diverses', 4, '62352a6003591402097291.jpeg', 384646, '2022-03-19 01:57:04', NULL, NULL, NULL),
+(17, 3, 45.83605, 1.237727, '<div>Le Catalpa est une espèce rustique. Il peut supporter des températures négatives de -10 a -28 degrés.&nbsp;<br><br></div><div>Dans de bonnes conditions sa croissance (les branches, les premières années peuvent croître de 40 à 50 cm de long) et sa longévité (un catalpa sain peut vivre jusqu\'à 120 ans) sont moyennes.<br><br></div><div>Le bois du catalpa est assez fragile en raison de son système racinaire traçant, l\'écorce est gris brun et se détache en petits éclats.</div>', 'Écorce', 4, '623529d38951d842297969.jpeg', 1065873, '2022-03-19 01:54:43', NULL, NULL, NULL),
+(18, 4, 45.835606, 1.237843, '<div>Les grandes feuilles sont caduques et en forme de cœur (parfois un peu lobées). Elles sont souples, vert clair et deviennent jaunes en automne. Elles sont opposées et insérées au même niveau, par groupes de trois unités (en générale) sur les branches.<br><br></div><div>Chez les jardiniers, le catalpa à feuilles caduques est aussi appelé \"arbre fonctionnel\" car il débourre tardivement et perd son feuillage d\'automne vert jaune au début de l\'automne.</div>', 'Feuille', 4, '62352a0137858797426862.jpeg', 440499, '2022-03-19 01:55:29', NULL, NULL, NULL),
+(19, 5, 45.835481, 1.237313, '<div>En automne, le catalpa donne des fruits en forme de fausses gousses fines et longues (1 cm de diamètre pour 30 à 40 cm de longueur), pendants, bruns à maturité, persistants une partie de l\'hiver.</div>', 'Fructification', 4, '62352a438c113226920535.jpeg', 840299, '2022-03-19 01:56:35', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reset_password_request`
+--
+
+DROP TABLE IF EXISTS `reset_password_request`;
+CREATE TABLE IF NOT EXISTS `reset_password_request` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `selector` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hashed_token` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `requested_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+  `expires_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+  PRIMARY KEY (`id`),
+  KEY `IDX_7CE748AA76ED395` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -183,6 +207,12 @@ INSERT INTO `user` (`id`, `email`, `roles`, `password`, `firstname`, `lastname`,
 --
 ALTER TABLE `point`
   ADD CONSTRAINT `FK_B7A5F3246E38C0DB` FOREIGN KEY (`parcours_id`) REFERENCES `parcours` (`id`);
+
+--
+-- Contraintes pour la table `reset_password_request`
+--
+ALTER TABLE `reset_password_request`
+  ADD CONSTRAINT `FK_7CE748AA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
