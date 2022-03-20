@@ -17,7 +17,7 @@
         <div id="points" data-is-points="{{ points|json_encode }}"></div>
     {% for point in points %}
         <a class="pull-left" id="{{ point.id }}">
-            <div class="card mb-3">
+            <div class="mb-3">
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <img src="{{asset('images/upload/point/'~point.imageName)}}" class="card-img" alt="image du point">
