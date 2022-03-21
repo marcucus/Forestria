@@ -35,6 +35,7 @@ for(let i =0; i < nb; i++)
 {
     let texts = points[i]['text'].substr(0, 100);
     latlngs.push([points[i]['latitude'],points[i]['longitude']],);
+
     marker = L.marker([points[i]['latitude'],points[i]['longitude']]).addTo(mymap);
     pid = points[i]['id'];
     contenu = `

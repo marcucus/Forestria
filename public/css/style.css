@@ -176,8 +176,12 @@ html {
 
 .row.modif_profil{
   background-color: #B9DB9D;
-  margin: 1%;
-  padding: 1%;
+  margin: 2%;
+  padding: 2%;
+}
+
+div.container.parcours{
+  margin-top: 3%;
 }
 
 .footer-dark {
@@ -381,6 +385,12 @@ html::-webkit-scrollbar-thumb {
   }
 
   .home .box.second {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+
+  .home .box.third {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
