@@ -6,7 +6,7 @@
     <nav class="navbar" id="navbar">
         <div id="nav-close" class="fas fa-times"></div>
          <a  href="{{ path('app_front') }}"><i class="fas fa-home"></i> Accueil</a>
-         <a  href="/parcours"><i class="fas fa-map-signs"></i> Parcours</a>
+         <a  href="{{ path('app_front') }}#parcours"><i class="fas fa-map-signs"></i> Parcours</a>
          {% if app.user %}
                     <a  href="/user"><i class="fas fa-user"></i> Profil </a>
                     {% if is_granted('ROLE_ADMIN') %}
