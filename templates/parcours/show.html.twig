@@ -19,7 +19,7 @@
     {% for point in points %}
         <a class="pull-left" id="{{ point.id }}">
             <div class="mb-3">
-                <div class="row no-gutters">
+                <div class="row no-gutters perso">
                     <div class="col-md-4">
                         <img src="{{asset('images/upload/point/'~point.imageName)}}" class="card-img" alt="image du point">
                     </div>
@@ -34,9 +34,10 @@
                     </div>
                 </div>
                 {%  if point.soundName is not null %}
-                <div class="card-footer"><audio controls src="{{asset('images/upload/point/sound/'~point.soundName)}}">
+                    <div class="card-footer">
+                        <audio controls src="{{asset('images/upload/point/sound/'~point.soundName)}}">
                         Your browser does not support the<code>audio</code> element.</audio>
-                </div>
+                    </div>
                 {% endif %}
             </div>
             <!--
