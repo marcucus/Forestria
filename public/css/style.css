@@ -25,6 +25,14 @@ html {
     width:1000px;
     margin:5rem auto;
 }
+.container_parcour h3{
+  text-align: center;
+  padding-top: 40px;
+}
+.container_parcour h1{
+  text-align: center;
+   padding-top: 90px;
+}
 @media only screen and (max-width: 768px) {
     #map {
         height:500px;
