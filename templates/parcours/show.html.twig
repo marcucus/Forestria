@@ -12,7 +12,11 @@
         <div id="longitude" data-is-longitude="{{ parcour.longitude|json_encode }}"></div>
         <h1>Parcours {{ parcour.name }} </h1>
     {% endfor %}
-    <h3>Carte emplacement des sentiers</h3>
+
+    <div class="col">
+    <h3>Carte interactive du sentier</h3>
+    </div>
+
     <div id="map"></div>
     <table>
         <div id="points" data-is-points="{{ points|json_encode }}"></div>

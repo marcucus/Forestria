@@ -67,6 +67,4 @@ var polyline = L.polyline(latlngs, {color: 'green'}).addTo(mymap);
 
 
 
-
-
 mymap.fitBounds(polyline.getBounds());
