@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 23 mars 2022 à 23:46
+-- Généré le : jeu. 24 mars 2022 à 12:41
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 7.4.26
 
@@ -140,8 +140,25 @@ INSERT INTO `point` (`id`, `pos`, `latitude`, `longitude`, `text`, `titre`, `par
 (12, 10, 45.83808, 1.235173, '<div>Pie bavarde (famille des Corvidés)</div>', 'Point d\'intérêt n°10', 5, '6232559ba0b7a845823883.jpg', 2152500, '2022-03-16 22:24:43', '6232559ba2e96708890809.mp3', 904894, NULL),
 (13, 11, 45.838116, 1.236647, '<div>Bergeronnette grise (famille des Motacillidés)</div>', 'Point d\'intérêt n°11', 5, '623255b668386915959805.jpg', 1976908, '2022-03-16 22:25:10', '623255b66a6b4035055864.mp3', 522218, NULL),
 (14, 12, 45.838136, 1.238206, '<div>Pigeons biset et ramier; Tourterelle turque (famille des Columbidés)</div>', 'Point d\'intérêt n°12 (fin)', 5, '623255cce5c8d544854617.jpg', 185897, '2022-03-16 22:25:32', '623255cce7b6c021110013.mp3', 1188768, NULL),
-(15, 1, 45.836, 1.237, NULL, 'Parking', 9, NULL, NULL, '2022-03-23 22:48:21', NULL, NULL, NULL),
-(16, 2, 45.836116, 1.236019, NULL, 'Trou de pic chênes', 9, NULL, NULL, '2022-03-23 23:07:03', NULL, NULL, NULL);
+(15, 1, 45.836, 1.237, '<div>Parking</div>', 'Point d\'intérêt n°1', 9, NULL, NULL, '2022-03-23 22:48:21', NULL, NULL, NULL),
+(16, 2, 45.836, 1.236, '<div>Trou de pic chênes</div>', 'Point d\'intérêt n°2', 9, NULL, NULL, '2022-03-23 23:07:03', NULL, NULL, NULL),
+(18, 3, 45.837215, 1.235664, '<div>Différence entre 2 types de chênes</div>', 'Point d\'intérêt n°3', 9, NULL, NULL, '2022-03-24 11:55:22', NULL, NULL, NULL),
+(19, 4, 45.836624, 1.234835, '<div>Souche (Capricorne)</div>', 'Point d\'intérêt n°4', 9, NULL, NULL, '2022-03-24 11:57:35', NULL, NULL, NULL),
+(20, 5, 45.83547, 1.235418, '<div>Chêne mort champi</div>', 'Point d\'intérêt n°5', 9, NULL, NULL, '2022-03-24 12:01:45', NULL, NULL, NULL),
+(21, 6, 45.835109, 1.236526, '<div>Gros chêne</div>', 'Point d\'intérêt n°6', 9, NULL, NULL, '2022-03-24 12:04:00', NULL, NULL, NULL),
+(22, 7, 45.835274, 1.237122, '<div>Chêne lierre</div>', 'Point d\'intéret n°7', 9, NULL, NULL, '2022-03-24 12:07:43', NULL, NULL, NULL),
+(23, 8, 45.834653, 1.238561, '<div>Chêne triple</div>', 'Point d\'intéret n°8', 9, NULL, NULL, '2022-03-24 12:10:00', NULL, NULL, NULL),
+(24, 9, 45.834375, 1.242053, '<div>Sequoia géant</div>', 'Point d\'intéret n°9', 9, NULL, NULL, '2022-03-24 12:11:20', NULL, NULL, NULL),
+(25, 10, 45.8341484, 1.2428839, '<div>Hêtre</div>', 'Point d\'intéret n°10', 9, NULL, NULL, '2022-03-24 12:13:20', NULL, NULL, NULL),
+(26, 11, 45.834315, 1.243802, '<div>2 charmes</div>', 'Point d\'intéret n°11', 9, NULL, NULL, '2022-03-24 12:15:16', NULL, NULL, NULL),
+(27, 12, 45.834226, 1.244229, '<div>Platane</div>', 'Point d\'intéret n°12', 9, NULL, NULL, '2022-03-24 12:16:48', NULL, NULL, NULL),
+(28, 13, 45.834392, 1.242701, '<div>2 peupliers</div>', 'Point d\'intéret n°13', 9, NULL, NULL, '2022-03-24 12:18:37', NULL, NULL, NULL),
+(29, 14, 45.8352541, 1.2389594, '<div>Arrêt recherche des cadeaux de la nature</div>', 'Point d\'intéret n°14', 9, NULL, NULL, '2022-03-24 12:20:06', NULL, NULL, NULL),
+(30, 1, 45.838, 1.237, '<div>Le Catalpa est l’un des rares arbres qui a conservé son nom d\\\'origine, donné par les Indiens Cherokees qui consommaient ces graines.<br><br>En langue cherokee, \\\"catalpa\\\" désigne une variété de haricot.</div>', 'Point d\'intéret n°1', 4, '623c57fa93360673019832.png', 208564, '2022-03-24 12:37:30', NULL, NULL, NULL),
+(31, 2, 45.836, 1.237, '<div>Il est originaire du sud-est des États-Unis. Le catalpa se trouve principalement dans les états du Mississippi et de la Géorgie. On le trouve également en Alabama, en Floride et en Louisiane.<br><br>Le catalpa a été introduit en Europe au début du 18ᵉ siècle.<br><br>Le catalpa apprécie les sols humifères (frais et drainés) et accepte les sols calcaires. Il résiste relativement bien à la pollution atmosphérique et ne tolère pas les sols compacts et superficiels ainsi que l\'hydromorphie prolongée ou permanente.</div>', 'Point d\'intéret n°2', 4, '623c581d4801a490819403.jpeg', 384646, '2022-03-24 12:38:05', NULL, NULL, NULL),
+(32, 3, 45.836, 1.238, '<div>Le Catalpa est une espèce rustique. Il peut supporter des températures négatives de -10 à -28 degrés.<br><br>Dans de bonnes conditions, sa croissance (les branches, les premières années, peuvent croître de 40 à 50 cm de long) et sa longévité (un catalpa sain peut vivre jusqu\'à 120 ans) sont moyennes.&nbsp;<br><br>Le bois du catalpa est assez fragile en raison de son système racinaire traçant, l\'écorce est gris brun et se détache en petits éclats.</div>', 'Point d\'intéret n°3', 4, '623c582dd51d0710150456.jpeg', 1065873, '2022-03-24 12:38:21', NULL, NULL, NULL),
+(33, 4, 45.836, 1.238, '<div>Les grandes feuilles sont caduques et en forme de cœur (parfois un peu lobées). Elles sont souples, vert clair et deviennent jaunes en automne. Elles sont opposées et insérées au même niveau, par groupes de trois unités (en général) sur les branches.&nbsp;<br><br>Chez les jardiniers, le catalpa à feuilles caduques est aussi appelé \"arbre fonctionnel\" car il débourre tardivement et perd son feuillage d\'automne vert jaune au début de l\'automne.</div>', 'Point d\'intéret n°4', 4, '623c583f2133b219715752.jpeg', 440499, '2022-03-24 12:38:39', NULL, NULL, NULL),
+(34, 5, 45.835, 1.237, '<div>En automne, le catalpa donne des fruits en forme de fausses gousses fines et longues (1 cm de diamètre pour 30 à 40 cm de longueur), pendants, bruns à maturité, persistants une partie de l\'hiver.</div>', 'Point d\'intéret n°5', 4, '623c584fdb469703397553.jpeg', 840299, '2022-03-24 12:38:55', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -210,7 +227,7 @@ ALTER TABLE `parcours`
 -- AUTO_INCREMENT pour la table `point`
 --
 ALTER TABLE `point`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT pour la table `user`
