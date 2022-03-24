@@ -33,7 +33,10 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 
 
-const latlngs = [];
+
+
+const latlngs = [
+];
 
 
 
@@ -68,3 +71,6 @@ var polyline = L.polyline(latlngs, {color: 'green'}).addTo(mymap);
 
 
 mymap.fitBounds(polyline.getBounds());
+
+
+
