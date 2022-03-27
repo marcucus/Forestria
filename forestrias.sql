@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 27 mars 2022 à 23:44
+-- Généré le : Dim 27 mars 2022 à 23:50
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -185,13 +185,6 @@ CREATE TABLE IF NOT EXISTS `reset_password_request` (
   KEY `IDX_7CE748AA76ED395` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `reset_password_request`
---
-
-INSERT INTO `reset_password_request` (`id`, `user_id`, `selector`, `hashed_token`, `requested_at`, `expires_at`) VALUES
-(1, 5, 'kFRDJ55eovpIHhFTeA6e', 'YlZaAS2ImwEJT9mW0AiEWj8nOPFVXVaVtzrzo49hPFw=', '2022-03-27 23:38:07', '2022-03-28 00:38:07');
-
 -- --------------------------------------------------------
 
 --
@@ -216,8 +209,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `roles`, `password`, `firstname`, `lastname`, `number`) VALUES
-(4, 'forestria@admin.fr', '[\"ROLE_ADMIN\"]', '$2y$13$Mnp2Zzf4U09/pmIPFD0jhekbDxQ..1y/dxHYabrZOt0lXUSKbMRc6', 'admin', 'admin', '0000000000'),
-(5, 'adrien227@gmail.com', '[]', '$2y$13$7Opko9aevtUdPCpm/DsiLuCnuKB/fE6NF87YKlpVTZjAiz.ZmtP1W', 'jean', 'michel', '0652415788');
+(4, 'forestria@admin.fr', '[\"ROLE_ADMIN\"]', '$2y$13$Mnp2Zzf4U09/pmIPFD0jhekbDxQ..1y/dxHYabrZOt0lXUSKbMRc6', 'admin', 'admin', '0000000000');
 
 --
 -- Contraintes pour les tables déchargées
