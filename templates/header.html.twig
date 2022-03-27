@@ -12,10 +12,10 @@
                     {% if is_granted('ROLE_ADMIN') %}
                         <a  href="/admin"><i class="fas fa-hammer"></i> Administration</a>
                     {% endif %}
-                    <a  href="{{ path('app_logout') }}"><i class="fas fa-bed"></i> Logout</a>
+                    <a  href="{{ path('app_logout') }}"><i class="fas fa-bed"></i> Se déconnecter</a>
                 {% else %}
-                    <a  href="{{ path('app_login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
-                    <a  href="{{ path('app_register') }}"><i class="fas fa-user"></i> Register</a>
+                    <a  href="{{ path('app_login') }}"><i class="fas fa-sign-in-alt"></i> Se connecter</a>
+                    <a  href="{{ path('app_register') }}"><i class="fas fa-user"></i> S'enregistrer</a>
                 {% endif %}
     </nav>
 

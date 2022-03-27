@@ -1,11 +1,11 @@
 const apiKey='pk.eyJ1IjoiY2hhaW1hYWJyIiwiYSI6ImNsMDVmbTFwcjB2Zm8zYm1qZHgyaTJuY3UifQ.YjE5dig22P0cEMnAh2cznA';
 
 var greenIcon = new L.Icon({
-	iconUrl: '../images/icon.png',
-	iconSize: [25, 41],
-	iconAnchor: [12, 41],
-	popupAnchor: [1, -34],
-	shadowSize: [41, 41]
+    iconUrl: '../images/icon.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
 });
 let points = $('#points').data("isPoints");
 
@@ -71,6 +71,3 @@ var polyline = L.polyline(latlngs, {color: 'green'}).addTo(mymap);
 
 
 mymap.fitBounds(polyline.getBounds());
-
-
-
